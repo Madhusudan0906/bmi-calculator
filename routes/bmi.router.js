@@ -31,7 +31,7 @@ bmiRouter.post('/calculate',Auth,async(req,res)=>{
 
 bmiRouter.get('/all',Auth,async(req,res)=>{
     try{
-        const bmis = await BmiModel.find({userId:req.userId});
+        const bmis = await BmiModel.find({userId:req.body.userId});
         res.send({"bmis":bmis});
     }catch(e){
         res.status(400).send("something went wrong.");
